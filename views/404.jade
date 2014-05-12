@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div(class="container")
+      div(class="page-header")
+        h1 Collaborative Storyboard Editor
+        
+      h3 What it is ?
+      p
+        COSE (Collaborative Storyboard Editor) is an application used for creating and editing a storyboard with multiple users at the same session based on an invitation URL. COSE offers you insertion tools like: text , geometric figures, external images and free drawing. In each moment, you have the possibility to locally save the current state and restore it later.
+
+      div(class="row")
+        div(class="col-xs-4")
+            form(class="form-signin", action="/login", method="post")
+                h2(class="form-signin-heading") Please log in
+                input(type="text", class="form-control", placeholder="Email address", name="email", autofocus)
+                br
+                input(type="password", class="form-control", placeholder="Password", name="password")
+                br
+                button(class="btn btn-lg btn-primary btn-block", type="submit") Log in
+                br
+                a(class="btn btn-lg btn-primary btn-block", href="/register") Register
+        div(class="col-xs-6")
+            h2 Or choose from options listed below
+            a(class="btn btn-lg btn-primary btn-block", href="/start") Start a new session
+            a(class="btn btn-lg btn-primary btn-block", href="/join") Join a session
+            a(class="btn btn-lg btn-primary btn-block", href="/load") Load session from file

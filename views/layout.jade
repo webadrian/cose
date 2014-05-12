@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title=title
+    link(href="/bootstrap/css/bootstrap.min.css", rel="stylesheet")
+    block includesHeader
+    link(href="/style.css", rel="stylesheet")
+  body
+    div(class="navbar navbar-default",role="navigation")
+      div(class="container")
+        div(class="navbar-header")
+          button(type="button", class="navbar-toggle", data-toggle="collapse", data-target=".navbar-collapse")
+            span(class="sr-only") Toggle navigation
+            span(class="icon-bar")
+          a(class="navbar-brand", href="/") COSE
+        div(class="navbar-collapse collapse")
+          ul(class="nav navbar-nav")
+              each urlitem in [{text: 'Home', url: '/'}, {text: 'Start a new session', url: '/session/start'}]
+                  li(class=(menu === urlitem.url ? 'active' : ''))
+                    a(href=urlitem.url) #{urlitem.text}
+          if user
+              ul(class="nav navbar-nav navbar-right")
+                li 
+                    a(class="btn btn-lg btn-link", href="/logout") Logged in as #{user.email}. Logout
+    block content
+    
+    script(src="http://code.jquery.com/jquery.js")
+    script(src="/bootstrap/js/bootstrap.min.js")
+    script(src="/scripts/functionality.js")
+    script(src="/scripts/fabric.js")
+    block includesFooter

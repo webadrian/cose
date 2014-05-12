@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    .container
+        h1 Load session
+        div(class="row")
+            div(class="col-xs-12")
+                form(class="form-signin", method="post")
+                    h2(class="form-signin-heading") Please enter the session id
+                    input(type="text", class="form-control", placeholder="Session id", name="data[id]", autofocus, required)
+                    br
+                    input(type="text", class="form-control", placeholder="Chat username", name="data[chatUsername]", required, value=(user ? user.email : ""), readonly=(user ? true : false))
+                    br
+                    input(type="text", class="form-control", placeholder="Password(if any)", name="data[password]")
+                    br
+                    button(class="btn btn-lg btn-primary btn-block", type="submit") Load

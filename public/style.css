@@ -1,0 +1,26 @@
+.container {
+    max-width: none !important;
+    width: 1200px;
+}
+
+ul {
+    list-style: none;
+}
+
+.chatHolder {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+}
+
+.chatContent {
+    height: 300px;
+    border: 1px solid #CCC;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+#storyBoardControls .tab-pane {
+    height: 175px;
+}

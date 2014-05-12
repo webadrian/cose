@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    .container
+        h1 Load storyboard
+        div(class="row")
+            div(class="col-xs-12")
+                form(class="form-signin", method="post", action="/session/start")
+                    h2(class="form-signin-heading") Please enter the JSON
+                    textarea(name="data[json]", autofocus, required, style="width: 100%; height: 400px;")
+                    br
+                    br
+                    button(class="btn btn-lg btn-primary btn-block", type="submit") Load

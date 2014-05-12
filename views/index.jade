@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  div(class="container")
+      div(class="page-header")
+        h1 Collaborative Storyboard Editor
+        
+      h3 What it is ?
+      p
+        COSE (Collaborative Storyboard Editor) is an application used for creating and editing a storyboard with multiple users at the same session based on an invitation URL. COSE offers you insertion tools like: text , geometric figures, external images and free drawing. In each moment, you have the possibility to locally save the current state and restore it later.
+
+      div(class="row")
+        div(class="col-xs-6")
+            if user
+                h2(class="form-signin-heading") Started sessions
+                table.table
+                    tr
+                        th
+                        th Date created
+                        th
+                    for storyboard, index in storyboards
+                        tr
+                            td #{index + 1}
+                            td #{storyboard.created}
+                            td
+                                a(class="btn btn-lg btn-primary btn-block", href=("/session/id/#{storyboard._id}"), target="_blank") Open
+                
+            else
+                form(class="form-signin", action="/login", method="post")
+                    h2(class="form-signin-heading") Please log in
+                    input(type="text", class="form-control", placeholder="Email address", name="data[email]", autofocus, required)
+                    br
+                    input(type="password", class="form-control", placeholder="Password", name="data[password]", required)
+                    br
+                    button(class="btn btn-lg btn-primary btn-block", type="submit") Log in
+                    br
+                    a(class="btn btn-lg btn-primary btn-block", href="/register") Register
+        div(class="col-xs-6")
+            h2 Choose from options listed below
+            a(class="btn btn-lg btn-primary btn-block", href="/session/start") Start a new session
+            a(class="btn btn-lg btn-primary btn-block", href="/session/join") Join a session
+            a(class="btn btn-lg btn-primary btn-block", href="/session/load") Load session

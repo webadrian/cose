@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    .container
+      h1 Register a new user
+        div(class="row")
+            div(class="col-xs-12")
+                form(class="form-signin", method="post")
+                    h2(class="form-signin-heading") Please log in
+                    input(type="text", class="form-control", placeholder="Email address", name="data[email]", autofocus, required)
+                    br
+                    input(type="password", class="form-control", placeholder="Password", name="data[password]", required)
+                    br
+                    button(class="btn btn-lg btn-primary btn-block", type="submit") Register
